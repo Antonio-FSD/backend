@@ -15,7 +15,9 @@ const Auth = {
             throw new Error()
 
         }catch(error){
-            return res.status(400).send(`Fallo de autenticación: ${error.message}`);
+
+            return res.status(401).send(`Fallo de autenticación, usuario no autorizado: ${error.message}`);
+
         }
     }
 };
