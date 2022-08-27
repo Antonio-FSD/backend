@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(`mongodb+srv://${process.env.MATLAS_USER}:${process.env.MATLAS_PASS}@cluster0.eyjxb.mongodb.net/test`, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(`mongodb+srv://${process.env.DB_ACCESS}:${process.env.DB_ACCESS}@cluster0.eyjxb.mongodb.net/cinema`, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(x => {
-    console.log(`Connected MongoDB, good luck with: "${x.connections[0].name}"`)
+    console.log(`Conectado, dale duro a: "${x.connections[0].name}"`)
   })
   .catch(err => {
-    console.error('Connection error, try again.', err)
+    console.error('Negativo chaval, prueba otra vez', err)
   });
 
- module.exports = mongoose;
+module.exports = mongoose;

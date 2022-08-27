@@ -4,9 +4,9 @@ const cors = require('cors');
 const express = require('express');
 const path = require('path');
 
-const categoryRouter = require('./routes/productosRouter');
-const userRouter = require('./routes/userRouter');
-const Router = require('./routes/categoryRouter');
+const movieRouter = require('./routers/movieRouter');
+const userRouter = require('./routers/userRouter');
+
 const multer = require('multer');
 
 const app = express();
@@ -14,10 +14,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use('/route', objectRouter);
+/* app.use('/movies', movieRouter);
+app.use('/users', userRouter); */
 
 const mongoose = require('./utils/dbConnection.js');
 
 app.listen(process.env.PORT, () => {
-    console.log('Arranca por la banda');
+    console.log(`App runnning on port ${process.env.PORT}`);
 });

@@ -1,4 +1,4 @@
-const { verifyToken } = require("./tokens");
+const { verifyToken } = require("./userToken");
 
 const Auth = {
     checkAuth: async (req, res, next) => {
@@ -16,7 +16,7 @@ const Auth = {
 
         }catch(error){
 
-            return res.status(401).send(`Fallo de autenticación, usuario no autorizado: ${error.message}`);
+            return res.status(401).send(`No se encontró el token de usuario o ha expirado: ${error.message}`);
 
         }
     }
