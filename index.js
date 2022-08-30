@@ -2,12 +2,11 @@ require('dotenv').config();
 
 const cors = require('cors');
 const express = require('express');
+/* const multer = require('multer'); */
 const path = require('path');
 
 const movieRouter = require('./routers/movieRouter');
 const userRouter = require('./routers/userRouter');
-
-const multer = require('multer');
 
 const app = express();
 
