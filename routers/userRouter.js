@@ -56,8 +56,7 @@ const userController = {
                     name: signedUser.name,
                     surname: signedUser.surname,
                     nickname: signedUser.nickName,
-                    email: signedUser.email,
-                    id: signedUser._id
+                    email: signedUser.email
                 }
             });
         }
