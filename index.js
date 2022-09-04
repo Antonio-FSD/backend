@@ -2,11 +2,10 @@ require('dotenv').config();
 
 const cors = require('cors');
 const express = require('express');
-/* const multer = require('multer'); */
 const path = require('path');
 
-const movieRouter = require('./routers/movieRouter');
-const userRouter = require('./routers/userRouter');
+/* const movieRouter = require('./routers/movieRouter');
+const userRouter = require('./routers/userRouter'); */
 
 const app = express();
 
@@ -19,5 +18,5 @@ app.use('/users', userRouter); */
 const mongoose = require('./utils/dbConnection.js');
 
 app.listen(process.env.PORT, () => {
-    console.log(`App runnning on port ${process.env.PORT}`);
+    console.log(`App running on port ${process.env.PORT}`);
 });
