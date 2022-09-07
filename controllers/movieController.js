@@ -3,15 +3,13 @@ const Movie = require('../models/movieModel.js');
 const movieController = {
     
     getMoviesList: async (req, res) => {
-        console.log('Consultar todas las películas');
-        
         const movies = await Movie.find();
         res.json(movies);
     },
 
     getMovie: async (req, res) => {
-        const { title } = req.body;
-        console.log('Nombre de la película: ' , title);
+        const id = req.params.id;
+        console.log('Nombre de la película: ' , id);
 
         const movieFound = await Movie.findOne({title});
 
@@ -33,12 +31,12 @@ const movieController = {
 
        const newMovie = new Movie();
 
-       newMovie.title = title,
-       newMovie.cover = cover,
-       newMovie.director = director,
-       newMovie.genre = genre,
-       newMovie.synopsis = synopsis,
-       newMovie.trailer = trailer
+       newMovie.title = title;
+       newMovie.cover = cover;
+       newMovie.director = director;
+       newMovie.genre = genre;
+       newMovie.synopsis = synopsis;
+       newMovie.trailer = trailer;
 
        newMovie.save( (err, savedInfo) => {
            if(err) {
