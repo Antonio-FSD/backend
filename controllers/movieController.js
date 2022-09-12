@@ -44,7 +44,17 @@ const movieController = {
            }
            res.json({message: `Movie added: ${title}`});
        })
-   }
+    },
+
+    getMovieByGenre: async (req, res) => {
+        const genreId  = req.params.id;
+       
+        const moviesFound = await Movie.find({ genre: genreId });
+        if (!moviesFound) return res.status(500).json({
+            error: 'Movie not found by this genre'
+        }); 
+        res.json(moviesFound);
+    },
 
 }
 
