@@ -57,10 +57,11 @@ const movieController = {
     },
 
     searchMovie: async (req, res) => {
-        const title = req.params.title;
+        const title = req.params.name;
+        console.log("search name:", title);
         const findreg = new RegExp(title, 'gi');
 
-        const moviesFound = await Movie.find({ $or:[{ title: findreg }, { director: findreg}, { synopsis: findreg }] });
+        const moviesFound = await Movie.find({ $or:[{ title: findreg }, { director: findreg }, { synopsis: findreg }] });
         if (!moviesFound.length) return res.status(200).json({
             error: 'MovieNotFound'
         }); 
