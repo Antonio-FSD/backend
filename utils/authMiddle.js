@@ -16,7 +16,7 @@ const Auth = {
 
         }catch(error){
 
-            return res.status(401).send(`No se encontró el token de usuario o ha expirado: ${error.message}`);
+            return res.status(401).send('No se encontró el token de usuario o ha expirado');
 
         }
     }
