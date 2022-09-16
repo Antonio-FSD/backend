@@ -8,15 +8,16 @@ const movieController = {
     },
 
     getMovie: async (req, res) => {
-        const id = req.params.id;
-        console.log('Nombre de la película: ' , id);
-
-        const movieFound = await Movie.findOne({title});
-
-        if (!movieFound) return res.status(500).json({
-            error: 'MovieNotFound'
-        });
-
+        const  movieId  = req.params.id;
+        // Se comprueba si es un object id (longitud de 24 caracteres)
+        if (movieId.length != 24) {
+            return res.status(500).json({ error: 'movieId not valid (length =24 char).' });
+        };
+        // Comprobamos si existe el producto.
+        const movieFound = await Movie.findOne({ _id : movieId});
+        if (!movieFound){
+            return res.status(500).json({ error: 'Product not found' });
+        };
         res.json(movieFound);
     },
 
